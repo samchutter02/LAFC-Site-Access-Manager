@@ -1,0 +1,496 @@
+/* styles.css - early 2000s admin panel vibe with CSS variables + clean left-aligned forms */
+
+:root {
+    --bg-body:          #f0f0f0;
+    --bg-white:         #ffffff;
+    --bg-button:        #e0e0e0;
+    --bg-button-hover:  #d0d0d0;
+    --bg-danger:        #c00000;
+    --bg-danger-hover:  #a80000;
+    --bg-hover:         #f8f8f8;
+    --bg-menu:          #e8e8e8;
+    --border-gray:      #808080;
+    --border-light:     #c0c0c0;
+    --border-dark:      #666666;
+    --text-main:        #000000;
+    --text-link:        #0033cc;
+    --text-link-hover:  #cc0000;
+    --text-heading:     #003366;
+    --text-error:       #900000;
+    --text-white:       #ffffff;
+    --font-heading:     Arial, Helvetica, sans-serif;
+    --font-body:        "Trebuchet MS", Arial, Helvetica, sans-serif;
+    --font-mono:        "Courier New", Courier, monospace;
+    --spacing-sm:       4px;
+    --spacing-md:       12px;
+    --spacing-lg:       20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-main);
+    background-color: var(--bg-body);
+}
+
+/* Top horizontal menu bar */
+.main-menu {
+    background: var(--bg-menu);
+    border-bottom: 2px solid var(--border-dark);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.main-menu li {
+    margin: 0;
+}
+
+.main-menu a {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-link);
+    text-decoration: none;
+    padding: 6px 0;
+}
+
+.main-menu a:hover {
+    color: var(--text-link-hover);
+    text-decoration: underline;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 6px 4px 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.action-btn:hover {
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+}
+
+.action-btn.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.action-btn.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.action-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.action-btn.btn-danger:focus {
+    box-shadow: 0 0 0 3px rgba(220,53,69,0.35);
+}
+
+
+/* Optional: tighter spacing in table cells */
+td.actions {
+    white-space: nowrap;
+}
+
+/* Content area */
+.content {
+    padding: 0 20px 30px 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+    margin: 0.4em 0;
+}
+
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 4px;
+    margin: 30px 0 14px 0;
+}
+
+a {
+    color: var(--text-link);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--text-link-hover);
+}
+
+/* ───────────────────────────────────────────────
+   Forms - clean stacked labels-above-fields layout
+───────────────────────────────────────────────── */
+
+form {
+    margin: 0;
+}
+
+form label {
+    display: block;
+    margin: 16px 0 5px 0;
+    font-weight: bold;
+    color: #444;
+    font-size: 13px;
+}
+
+/* Remove any legacy selectors that might interfere */
+form > label,
+form br + label {
+    margin: 16px 0 5px 0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form input[type="number"],
+form input[type="tel"],
+form textarea,
+form select {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-gray);
+    background-color: var(--bg-white);
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    margin-bottom: 4px;           /* tight spacing between field and next label */
+}
+
+form textarea {
+    width: 100%;
+    max-width: 560px;
+    height: 100px;
+    margin-bottom: 4px;
+}
+
+form select {
+    padding: 5px 6px;
+    margin-bottom: 4px;
+}
+
+form button,
+form input[type="submit"],
+form input[type="button"] {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    padding: 8px 20px;
+    background-color: var(--bg-button);
+    border: 2px outset var(--border-light);
+    color: var(--text-main);
+    cursor: pointer;
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+
+form button:hover,
+form input[type="submit"]:hover,
+form input[type="button"]:hover {
+    background-color: var(--bg-button-hover);
+}
+
+form button:active,
+form input[type="submit"]:active,
+form input[type="button"]:active {
+    border-style: inset;
+}
+
+/* Danger / Terminate button */
+.btn-danger,
+.btn-terminate,
+form button.terminate,
+form input[type="submit"].terminate,
+form button.delete,
+form input.delete {
+    background-color: var(--bg-danger);
+    color: var(--text-white);
+    border-color: #800000;
+}
+
+.btn-danger:hover,
+.btn-terminate:hover,
+form button.terminate:hover,
+form input[type="submit"].terminate:hover,
+form button.delete:hover,
+form input.delete:hover {
+    background-color: var(--bg-danger-hover);
+}
+
+/* Special case: login form - also left-aligned */
+.login-container {
+    width: 400px;
+    max-width: 90%;
+    margin: 120px auto 40px auto;
+    background: var(--bg-white);
+    border: 1px solid #999;
+    padding: 32px;
+}
+
+.login-container h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-container form label {
+    margin: 18px 0 6px 0;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 4px;
+}
+
+/* Tables - skinny rows */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    background: var(--bg-white);
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 6px 10px;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    background-color: #e8e8e8;
+    font-weight: bold;
+    color: #003366;
+}
+
+tr:hover {
+    background-color: var(--bg-hover);
+}
+
+/* Overview stats */
+.overview-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.stat-card {
+    background: var(--bg-white);
+    border: 1px solid #999;
+    padding: 16px 24px;
+    min-width: 160px;
+    flex: 1 1 220px;
+}
+
+.stat-card h3 {
+    font-size: 14px;
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: var(--text-heading);
+}
+
+/* Misc */
+.back-link {
+    display: inline-block;
+    margin: 0 0 20px 0;
+    font-size: 14px;
+}
+
+p[style*="color:#900"] {
+    color: var(--text-error) !important;
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+/* ───────────────────────────────────────────────
+   TERMINATE MODAL - retro 2000s admin style
+───────────────────────────────────────────────── */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    overflow: auto;
+    font-family: var(--font-body);
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    margin: 6% auto;
+    padding: 28px 32px;
+    border: 4px solid var(--border-dark);
+    width: 92%;
+    max-width: 680px;
+    box-shadow: 8px 8px 0 #333;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin: 0 0 20px 0;
+    font-size: 19px;
+    color: var(--text-heading);
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 10px;
+}
+
+.modal-content ul {
+    padding-left: 22px;
+    margin: 16px 0;
+}
+
+.modal-content li {
+    margin: 14px 0;
+    line-height: 1.45;
+}
+
+.close-btn {
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--text-link-hover);
+}
+
+.modal-actions {
+    margin-top: 28px;
+    text-align: right;
+}
+
+/* Centered button-style navigation – retro but cleaner */
+.nav-center-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 12px 20px;
+    background: var(--bg-menu);
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--bg-button);
+    border: 2px outset var(--border-light);
+    color: var(--text-main);
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    min-width: 100px;
+    /* box-shadow: 1px 1px 2px rgba(0,0,0,0.15); */
+    transition: all 0.12s;
+}
+
+.nav-btn-special{
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--bg-button);
+    border: 2px outset var(--border-light);
+    color: var(--text-main);
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    min-width: 100px;
+    /* box-shadow: 1px 1px 2px rgba(0,0,0,0.15); */
+    transition: all 0.12s;
+}
+
+.nav-btn:active {
+    border-style: inset;
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Special logout styling */
+.nav-btn.logout {
+    background: #c00000;
+    color: white;
+    border-color: #800000;
+}
+
+.nav-btn.logout:hover {
+    background: #a80000;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+    .nav-center-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .nav-btn {
+        width: 80%;
+        max-width: 260px;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .overview-grid {
+        flex-direction: column;
+    }
+    .main-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

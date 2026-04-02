@@ -261,7 +261,7 @@ $sites = $pdo->query("
     <?php endif; ?>
 
     <div style="margin: 1rem; font-size: 14px; text-align: center;">
-        <p><strong>Purpose: </strong><em>This page lets you view a list of all websites, as well as add, edit, or delete entries.</em></p>
+        <p><strong>Purpose: </strong><em>This page lets you view a list of all sites & their admins, as well as add/edit/delete sites.</em></p>
     </div>
 
     <details>

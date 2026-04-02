@@ -321,7 +321,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 
     <div style="margin: 1rem; font-size: 14px; text-align: center;">
-        <p><strong>Purpose: </strong><em>This page allows you to view all users, add new ones, edit or delete existing users, terminate users while simultaneously notifying necessary admins, and manage user permissions.</em></p>
+        <p><strong>Purpose: </strong><em>This page allows you to view all users, add new ones, or edit existing users, terminate users / notify admins, & manage user permissions.</em></p>
+        <h3 style="color: #c00">To request an user deletion: contact Samuel Chutter <a href="mailto:samuel.chutter@lafrontera.org?subject=TERMINATION-REQUEST">here</a>.</h2>
     </div>
 
     <!-- Create User -->
@@ -527,7 +528,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div id="terminateModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeTerminateModal()">×</span>
-        <h2>⚠️ Terminate User</h2>
+        <h2>TERMINATING USER</h2>
         
         <div id="modalUserInfo" style="margin:20px 0; padding:14px; background:#fff0f0; border:2px solid #c00; border-radius:6px;"></div>
         <div id="modalSitesInfo"></div>
@@ -600,7 +601,7 @@ function showTerminateModal(userId) {
                 <strong>Email:</strong> ${escapeHtml(data.user.email)}
             `;
 
-            let html = `<h3 style="color:#900; margin:1.6em 0 0.8em;">Sites & Admins to Notify:</h3>`;
+            let html = `<h3 style="color:#900; margin:1.6em 0 0.8em;">**EMAIL ADMINS AND REMIND THEM TO REMOVE THIS USER FROM THE FOLLOWING SITES:**</h3>`;
 
             if (data.sites.length === 0) {
                 html += `<p style="color:#555; font-style:italic;">No site permissions assigned.</p>`;
